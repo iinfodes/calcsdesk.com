@@ -2,11 +2,13 @@
 
 Project code: AD01. The owner's local workspace includes `CLAUDE.md`, `DOMAIN_FILE.md`, `KIT/` and `ops/`. Those internal handover and account-operations files are intentionally excluded from this public repository.
 
-The handover is copied from the owner's INFODES_FINAL folder. The selected design is implemented locally with Astro, TypeScript and Preact: option 1 home, option 4 country section and option 7 country-page finder. No deployment has been made. No ad files or ad code have been generated.
+The handover is copied from the owner's INFODES_FINAL folder. The selected design uses Astro, TypeScript and Preact: option 1 home, option 4 country section and option 7 country-page finder. A development build is deployed at https://calcsdesk.pages.dev/. The custom domain connection is pending explicit DNS/account approval. No ad files or ad code have been generated.
 
 P7 is complete. The home page, six country hubs, methodology, sources and 404 layout are built. Search, country filters, guided selection, mobile navigation and persistent dark mode work. Calculator engines are not implemented; tools are labelled in preparation, all pages remain noindex and no sitemap is emitted. Legal/contact work, sourced rates, accuracy tests and launch checks are still outstanding.
 
 Cloudflare setup remains incomplete pending approved external changes and verification; account identity has been confirmed. The owner's local workspace contains the setup plan.
+
+Cloudflare Pages project: `calcsdesk`, production branch: `main`. The initial deployment was a direct upload of `dist/`; future GitHub pushes currently run CI without automatically deploying to Cloudflare. All deployed pages remain noindex while calculators are in preparation.
 
 ## Local development
 
