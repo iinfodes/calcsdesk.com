@@ -1,0 +1,21 @@
+{
+  "tax_year": "2026-27",
+  "currency": "AUD",
+  "review_status": "foundation-only-human-review-pending",
+  "scope": "Ordinary taxable income of a full-year Australian resident aged 18 or over; before offsets and all levies. Not a pay or take-home estimate.",
+  "source_url": "https://www.legislation.gov.au/C2004A03348/2026-07-01/2026-07-01/text/original/epub/OEBPS/document_1/document_1.html",
+  "source_title": "Income Tax Rates Act 1986, compilation 66, Schedule 7 Part I",
+  "cross_check_url": "https://moneysmart.gov.au/work-and-tax/income-tax",
+  "effective_from": "2026-07-01",
+  "effective_to": "2027-06-30",
+  "verified_on": "2026-11-02",
+  "verified_by": "Codex official-source check; human review pending",
+  "notes": "No LITO, WATO, Medicare levy/surcharge, HELP, deductions, foreign residents, working holiday makers, minors, part-year residency or special income components. No public calculator route is released from this foundation.",
+  "brackets": [
+    { "up_to": 18200, "rate_bps": 0 },
+    { "up_to": 45000, "rate_bps": 1500 },
+    { "up_to": 135000, "rate_bps": 3000 },
+    { "up_to": 190000, "rate_bps": 3700 },
+    { "up_to": null, "rate_bps": 4500 }
+  ]
+}

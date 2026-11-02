@@ -1,0 +1,28 @@
+{
+  "currency": "AED",
+  "source_url": "https://assets.u.ae/api/public/content/eb65a60bbff949fa912eddd566613014?v=7174ed78",
+  "source_title": "UAE Government hosted MOHRE Decree-Law 33/2021 English PDF, Articles 51, 67 and 74",
+  "effective_from": "2022-02-02",
+  "effective_to": null,
+  "notes": "Article 74 specifies enforcement from 2 February 2022; no expiry date established. Official portal guidance corroborates the accrual bands at verification. English PDF is not an official translation or proven current consolidation. Root provenance covers unambiguous statutory accrual rules only; cap boundary and rounding are explicit product conventions pending review, not resolved legal rules.",
+  "verified_on": "2026-11-02",
+  "verified_by": "Automated official-source review; human legal review pending",
+  "review_status": "pending-human-review-and-two-official-worked-examples",
+  "scope": "Foreign full-time monthly-paid workers in the federal private-sector traditional gratuity system; continuous service only; amounts before deductions.",
+  "excluded": ["DIFC", "ADGM", "government", "domestic workers", "UAE nationals", "savings or alternative schemes", "part-time or other work patterns", "piecework", "disputed continuous service", "cap-affected service"],
+  "year_days": 365,
+  "month_days": 30,
+  "minimum_service_days": 365,
+  "first_band_years": 5,
+  "first_band_days_per_year": 21,
+  "later_band_days_per_year": 30,
+  "cap_review_boundary_months_basic": 24,
+  "cap_status": "Unresolved official wording: Article 51(6) says two years wage; a MOHRE job-offer annex search excerpt says two years basic wage. This model rejects accrual above 24 months basic rather than deciding which cap applies.",
+  "rounding": "Calculate unrounded accrual then round the displayed total once to the nearest fils, half up; display convention pending official worked-example review.",
+  "sources": [
+    {"title": "UAE Government: private-sector end-of-service benefits", "url": "https://u.ae/en/information-and-services/jobs/employment-in-the-private-sector/end-of-service-benefits-for-employees-in-the-private-sector", "supports": "Basic wage, eligibility, fractional service, unpaid absence exclusion, band rates and two-year wage limit."},
+    {"title": "UAE Government hosted MOHRE English Decree-Law 33/2021", "url": "https://assets.u.ae/api/public/content/eb65a60bbff949fa912eddd566613014?v=7174ed78", "supports": "Articles 1, 51 and 67: definitions, bands and service exclusions, 365-day year and 30-day month. English PDF labels itself not an official translation; Arabic prevails."},
+    {"title": "MOHRE job-offer annex (conflicting cap wording; excerpt only)", "url": "https://mohre.gov.ae/assets/a00f738d/annex-of-job-offer-for-limited-term-employment-contract.aspx", "supports": "Search excerpt refers to two years basic wage. Full PDF fetch timed out; applicability and current wording require human review."}
+  ],
+  "official_worked_examples": {"required": 2, "verified": 0, "status": "pending; local test illustrations are not official examples"}
+}

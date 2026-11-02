@@ -1,0 +1,129 @@
+{
+  "checks": [
+    {
+      "route": "/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/us/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/uk/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/ca/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/au/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/ae/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/in/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/methodology/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/sources/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/404.html",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/us/tax/income-tax-calculator/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/about/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/team/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/editorial-policy/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/corrections/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/updates/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/uk/pay/salary-calculator/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/ae/gratuity/gratuity-calculator/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/in/tax/income-tax-calculator/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    }
+  ],
+  "errors": [],
+  "search": "passed",
+  "countryFilter": "passed",
+  "guidedFinder": "passed",
+  "calculator": "passed",
+  "invalidAmount": "passed",
+  "offlineCalculation": "passed",
+  "sharedFragmentRestore": "passed",
+  "themePersistence": "passed",
+  "mobileNavigation": "passed",
+  "noJSToolCount": 4
+}

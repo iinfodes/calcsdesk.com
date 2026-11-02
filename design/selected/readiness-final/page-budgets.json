@@ -1,0 +1,116 @@
+[
+  {
+    "page": "404.html",
+    "html": 5158,
+    "css": 17130,
+    "javascriptGzip": 404
+  },
+  {
+    "page": "index.html",
+    "html": 25479,
+    "css": 18916,
+    "javascriptGzip": 17353
+  },
+  {
+    "page": "about/index.html",
+    "html": 11130,
+    "css": 19613,
+    "javascriptGzip": 404
+  },
+  {
+    "page": "ae/index.html",
+    "html": 14332,
+    "css": 17189,
+    "javascriptGzip": 15863
+  },
+  {
+    "page": "au/index.html",
+    "html": 13938,
+    "css": 17189,
+    "javascriptGzip": 15863
+  },
+  {
+    "page": "ca/index.html",
+    "html": 14032,
+    "css": 17189,
+    "javascriptGzip": 15863
+  },
+  {
+    "page": "corrections/index.html",
+    "html": 10674,
+    "css": 19613,
+    "javascriptGzip": 404
+  },
+  {
+    "page": "editorial-policy/index.html",
+    "html": 10901,
+    "css": 19613,
+    "javascriptGzip": 404
+  },
+  {
+    "page": "in/index.html",
+    "html": 14209,
+    "css": 17189,
+    "javascriptGzip": 15863
+  },
+  {
+    "page": "methodology/index.html",
+    "html": 7546,
+    "css": 17130,
+    "javascriptGzip": 404
+  },
+  {
+    "page": "sources/index.html",
+    "html": 8738,
+    "css": 17130,
+    "javascriptGzip": 404
+  },
+  {
+    "page": "team/index.html",
+    "html": 10663,
+    "css": 19613,
+    "javascriptGzip": 404
+  },
+  {
+    "page": "uk/index.html",
+    "html": 14265,
+    "css": 17189,
+    "javascriptGzip": 15863
+  },
+  {
+    "page": "updates/index.html",
+    "html": 12125,
+    "css": 19613,
+    "javascriptGzip": 404
+  },
+  {
+    "page": "us/index.html",
+    "html": 16043,
+    "css": 17189,
+    "javascriptGzip": 15863
+  },
+  {
+    "page": "ae/gratuity/gratuity-calculator/index.html",
+    "html": 25847,
+    "css": 20496,
+    "javascriptGzip": 17011
+  },
+  {
+    "page": "in/tax/income-tax-calculator/index.html",
+    "html": 27647,
+    "css": 21363,
+    "javascriptGzip": 17200
+  },
+  {
+    "page": "uk/pay/salary-calculator/index.html",
+    "html": 28113,
+    "css": 30595,
+    "javascriptGzip": 17822
+  },
+  {
+    "page": "us/tax/income-tax-calculator/index.html",
+    "html": 32042,
+    "css": 29226,
+    "javascriptGzip": 19652
+  }
+]

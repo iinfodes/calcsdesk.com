@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/trust.css';
+interface Props { title: string; description: string; breadcrumb: string; eyebrow: string; heading: string; intro: string; }
+const { title, description, breadcrumb, eyebrow, heading, intro } = Astro.props;
+---
+<Base title={title} description={description} breadcrumb={breadcrumb}>
+  <article class="trust-page">
+    <header class="trust-page-header"><p class="eyebrow">{eyebrow}</p><h1>{heading}</h1><p class="lead">{intro}</p><p class="trust-date">Last updated <time datetime="2026-11-02">2 November 2026</time></p></header>
+    <div class="trust-page-body"><slot /></div>
+    <nav class="trust-related" aria-label="About CalcsDesk"><a href="/about/">About</a><a href="/team/">Editorial team</a><a href="/editorial-policy/">Editorial policy</a><a href="/methodology/">Methodology</a><a href="/corrections/">Corrections</a><a href="/updates/">Updates</a></nav>
+  </article>
+</Base>

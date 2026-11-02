@@ -1,26 +1,54 @@
 # CalcsDesk · calcsdesk.com
 
-Project code: AD01. The owner's local workspace includes `CLAUDE.md`, `DOMAIN_FILE.md`, `KIT/` and `ops/`. Those internal handover and account-operations files are intentionally excluded from this public repository.
+Astro, TypeScript and Preact calculators hosted on Cloudflare Pages at [calcsdesk.com](https://calcsdesk.com/). HTTPS and www requests redirect to the HTTPS apex, preserving the path and query. Ads are off.
 
-The handover is copied from the owner's INFODES_FINAL folder. The selected design uses Astro, TypeScript and Preact: option 1 home, option 4 country section and option 7 country-page finder. The development site is deployed at https://calcsdesk.com/ (Cloudflare Pages alias: https://calcsdesk.pages.dev/), with www redirecting to non-www. No ad files or ad code have been generated.
+The substantive homepage is eligible for indexing. Calculator betas, country collections and trust pages remain `noindex`; `/sitemap.xml` contains only the homepage. Search-engine inclusion is not guaranteed by that policy.
 
-P7 is complete. The home page, six country hubs, methodology, sources and 404 layout are built. Search, country filters, guided selection, mobile navigation and persistent dark mode work. The first calculator is a limited 2026 US federal wage-income beta at `/us/tax/income-tax-calculator/`: five filing statuses, basic standard deduction, progressive regular income tax, employee Social Security, Medicare and Additional Medicare, with per-person wage caps for joint returns. It includes annual/monthly views, bracket working, printable results and URL-fragment sharing. Other tools remain in preparation; all pages are noindex and no sitemap is emitted. Human review, full official worked-example release checks, legal/contact work and launch checks remain outstanding.
+## Available limited betas
 
-The apex domain is connected to Cloudflare Pages. HTTP and www requests redirect to HTTPS non-www with path/query preserved. DNSSEC and other remaining setup tasks are tracked in the owner's local handover.
+| Tool | Route | Supported model and important limit |
+| --- | --- | --- |
+| US federal income tax | `/us/tax/income-tax-calculator/` | 2026 wage-only regular income tax before credits, basic standard deduction and employee FICA. Separate spouse wages preserve per-earner Social Security caps. Not W-4 withholding, a complete return or take-home pay. |
+| UK monthly salary | `/uk/pay/salary-calculator/` | 2026/27, twelve equal monthly pays, annual salary Income Tax and period-based category A employee NI. Includes Scotland. Excludes pensions, loans, uneven pay and PAYE history. |
+| UAE gratuity | `/ae/gratuity/gratuity-calculator/` | Narrow federal private-sector traditional-gratuity case using basic wage and confirmed service days. Cap-affected cases are unsupported pending source clarification; no entitlement is inferred from an unavailable result. |
+| India salary regimes | `/in/tax/income-tax-calculator/` | Enacted Tax Year 2026–27 ordinary-salary comparison for resident individuals under 60, up to ₹50 lakh gross. Shows rebate, marginal relief, cess and rounding. Additional old-regime deductions must be independently confirmed eligible. |
 
-Cloudflare Pages project: `calcsdesk`, production branch: `main`. The initial deployment was a direct upload of `dist/`; future GitHub pushes currently run CI without automatically deploying to Cloudflare. All deployed pages remain noindex while calculators are in preparation.
+Each page provides its own assumptions, source records, check date and review status. Automated source/component checks do not establish human or professional sign-off. Full official worked-example gates remain pending where stated.
 
-## Local development
+The federal beta also provides annual/monthly views, bracket working, optional scenario comparison, printing and explicit sharing. Comparison values are annual; share links contain scenario A only. Shared fragments are validated atomically before restoring a scenario.
 
-- `npm ci` installs the locked dependencies.
+Australian resident and Canadian federal bracket engines are unpublished foundations. They do not complete their planned pay/income-tax tools or include all levies, offsets, credits, provincial taxes or payroll contributions. Other directory entries remain clearly labelled preparation tools.
+
+## Navigation, trust and privacy
+
+The homepage defaults to available betas, with optional preparation tools and country filtering. A country preference is saved locally only after opt-in; it never redirects visitors. Six country collections include guided finders. About, review status, editorial policy, corrections, methodology, sources and updates describe the work actually completed.
+
+Calculations run in the browser without financial-input submission or automatic wage storage. Theme and optional country preferences use localStorage. Only an explicitly requested federal share link places financial inputs in a URL fragment. Recipients can read those figures.
+
+Contact delivery and final legal publication are not active. The corrections page makes that limitation clear. Human calculator review, applicable official-example checks and the remaining full-launch work are still outstanding.
+
+## Development and verification
+
+Use Node 24 and the locked dependencies.
+
+- `npm ci` installs dependencies.
 - `npm run dev` starts the development site.
-- `npm run verify` checks types, calculator/validator tests, source-data provenance, the build, metadata, links, structured data, noindex, no-email and no-ad requirements.
-- `npm test` runs the calculator and data-validator suite.
-- `npm run validate:data` checks the sourced 2026 data records in `src/data/us/2026/federal.json`.
-- `npm run build` produces `dist/` for a future Cloudflare Pages deployment.
+- `npm run verify` checks types, engine/validator tests, all six source-data documents, static output, metadata, internal links, indexing/sitemap policy, no-email/no-ad requirements and page-size budgets.
+- `npm run test:browser` runs desktop/mobile Chromium flows against an existing build. Install Chromium with `npx playwright install chromium`, or set `PLAYWRIGHT_CHROME_PATH` to an installed Chrome executable. GitHub CI installs Chromium and runs these checks after verification.
+- `npm run validate:data` checks registered US, UK, UAE, India, AU and CA datasets.
+- `npm run build` writes `dist/`.
+- `node scripts/check-live.mjs` performs read-only production smoke checks after deployment: canonical/robots responses, sitemap discovery, missing pages and one-hop redirects. It does not submit indexing requests or visitor data.
 
-Review screenshots are in `design/selected/`. The isolated local layout-review helper, `scripts/review-layout.cjs`, uses this desktop's bundled browser libraries and installed Chrome; it is a local review utility rather than a portable CI browser suite. Its results are in `design/selected/review-results.json`.
+Size guards limit HTML to 100 KiB, all linked/inline CSS to 30 KiB and transitive plus inline JavaScript to 70 KiB gzip per page. Lab performance results and selected layout evidence are in `design/selected/readiness-final/`; they are not field Core Web Vitals. Desktop-specific review helpers use this workspace's installed Chrome and bundled runtime; portable CI flows live under `tests/browser/`.
 
-## Calculator scope and review status
+## Source review and reset dry-run
 
-The federal beta models regular federal income tax before credits on wage income, using the basic standard deduction. It assumes the same wage base for income tax and FICA. It is not a W-4/paycheck-withholding calculator or a complete tax return. The page lists exclusions and supported cases. Rates carry source URLs, effective dates and a source-check date; professional/human review is not claimed. Official tax-schedule checkpoints and wage portions of IRS Medicare examples are tested, but do not replace the pending full official worked-example gate. No entered financial amounts are submitted to a server; share links use the fragment and are created only on request.
+Run `node scripts/data-review.mjs --current src/data/us/2026/federal.json` for the existing federal source/effective-date checklist. Add `--candidate <local-candidate.json>` to inspect rate-versus-metadata changes, or `--format json` for a deterministic report. Both files must pass validation.
+
+This command reads files without fetching sources, changing verification dates, approving review, promoting rates or publishing updates. A next-year dataset requires validator, engine, route and test updates first. Source review and human release decisions remain separate.
+
+## Deployment and local handover
+
+Cloudflare Pages project: `calcsdesk`, production branch: `main`. GitHub pushes run CI; the project currently uses direct uploads of `dist/` rather than automatic Cloudflare deployment. Deploy only the verified revision and run the production smoke check afterward.
+
+Project code: AD01. The selected composition uses option 1 home, option 4 country cards and option 7 guided finders. Private owner files (`CLAUDE.md`, `DOMAIN_FILE.md`, `KIT/`, `ops/`), credentials, build outputs and dependency directories are excluded from public Git. Logo explorations remain unapplied. Remaining account/security setup is tracked in that local handover.

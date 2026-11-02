@@ -8,6 +8,8 @@ dist/
 .wrangler/
 .DS_Store
 *.log
+playwright-report/
+test-results/
 
 # Owner handover and account operations stay local; the GitHub repository is public.
 KIT/

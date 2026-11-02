@@ -1,0 +1,22 @@
+{
+  "tax_year": 2026,
+  "currency": "CAD",
+  "review_status": "foundation-only-human-review-pending",
+  "scope": "2026 ordinary taxable-income federal bracket component before all credits and adjustments; not net federal tax, total income tax, payroll withholding or take-home pay.",
+  "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+  "source_title": "CRA: Current year tax rates and income brackets (2026), Federal rate for 2026",
+  "cross_check_url": "https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jan/t4127-jan-payroll-deductions-formulas-computer-programs.html",
+  "effective_from": "2026-01-01",
+  "effective_to": "2026-12-31",
+  "verified_on": "2026-11-02",
+  "verified_by": "Codex official CRA source check; human review pending",
+  "notes": "CRA identifies these rates for income earned in 2026 and the return filed in 2027. No basic personal amount or other tax credits, provincial/territorial tax, Quebec abatement, additional taxes, minimum tax, CPP/QPP, EI, deductions from gross income, special income treatment or nonresident/part-year rules. Input is already ordinary taxable income. No public route is released. Total rounded once to nearest cent, half up, as a component display convention pending official worked-example review; this is not a T1 filing/rounding implementation.",
+  "official_worked_examples": { "required": 2, "verified": 0, "status": "pending; schedule checkpoints are locally calculated, not official worked examples" },
+  "brackets": [
+    { "up_to": 58523, "rate_bps": 1400 },
+    { "up_to": 117045, "rate_bps": 2050 },
+    { "up_to": 181440, "rate_bps": 2600 },
+    { "up_to": 258482, "rate_bps": 2900 },
+    { "up_to": null, "rate_bps": 3300 }
+  ]
+}

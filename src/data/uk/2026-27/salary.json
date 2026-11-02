@@ -1,0 +1,135 @@
+{
+  "tax_year": "2026-27",
+  "currency": "GBP",
+  "effective_from": "2026-04-06",
+  "effective_to": "2027-04-05",
+  "verified_on": "2026-11-02",
+  "verified_by": "Codex primary-source check; human review pending",
+  "review_status": "source-checked-human-review-pending",
+  "personal_allowance": {
+    "amount": 12570,
+    "taper_start": 100000,
+    "taper_divisor": 2,
+    "rounding": "Remaining allowance rounded up to a whole pound, then floored at zero.",
+    "source_url": "https://www.gov.uk/income-tax-rates",
+    "source_title": "Income Tax rates and Personal Allowances — current rates",
+    "rounding_source_url": "https://www.legislation.gov.uk/ukpga/2007/3/section/35",
+    "effective_from": "2026-04-06",
+    "effective_to": "2027-04-05",
+    "verified_on": "2026-11-02",
+    "notes": "Salary is assumed to be the entire adjusted net income; no reliefs or allowance transfers.",
+    "verified_by": "Codex primary-source check; human review pending"
+  },
+  "income_tax": {
+    "rest_of_uk": {
+      "label": "England, Wales and Northern Ireland",
+      "brackets": [
+        {
+          "up_to": 37700,
+          "rate_bps": 2000
+        },
+        {
+          "up_to": 125140,
+          "rate_bps": 4000
+        },
+        {
+          "up_to": null,
+          "rate_bps": 4500
+        }
+      ],
+      "source_url": "https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027",
+      "source_title": "HMRC employer rates and thresholds — England, Wales and Northern Ireland",
+      "effective_from": "2026-04-06",
+      "effective_to": "2027-04-05",
+      "verified_on": "2026-11-02",
+      "notes": "Upper bounds are annual taxable income AFTER Personal Allowance, not gross-income thresholds.",
+      "verified_by": "Codex primary-source check; human review pending"
+    },
+    "scotland": {
+      "label": "Scotland",
+      "brackets": [
+        {
+          "up_to": 3967,
+          "rate_bps": 1900
+        },
+        {
+          "up_to": 16956,
+          "rate_bps": 2000
+        },
+        {
+          "up_to": 31092,
+          "rate_bps": 2100
+        },
+        {
+          "up_to": 62430,
+          "rate_bps": 4200
+        },
+        {
+          "up_to": 125140,
+          "rate_bps": 4500
+        },
+        {
+          "up_to": null,
+          "rate_bps": 4800
+        }
+      ],
+      "source_url": "https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027",
+      "source_title": "HMRC employer rates and thresholds — Scotland",
+      "crosscheck_url": "https://www.gov.uk/scottish-income-tax",
+      "effective_from": "2026-04-06",
+      "effective_to": "2027-04-05",
+      "verified_on": "2026-11-02",
+      "notes": "Employment income only. Upper bounds are taxable income AFTER Personal Allowance; gross thresholds cannot be used unchanged when allowance tapers.",
+      "verified_by": "Codex primary-source check; human review pending"
+    }
+  },
+  "employee_ni": {
+    "category": "A",
+    "main_rate_bps": 800,
+    "upper_rate_bps": 200,
+    "monthly": {
+      "primary_threshold": 1048,
+      "upper_earnings_limit": 4189
+    },
+    "weekly": {
+      "primary_threshold": 242,
+      "upper_earnings_limit": 967
+    },
+    "source_url": "https://www.gov.uk/national-insurance-rates-letters",
+    "source_title": "National Insurance rates and categories — employee contribution rates",
+    "period_source_url": "https://www.gov.uk/government/publications/cwg2-further-guide-to-paye-and-national-insurance-contributions/2026-to-2027-employer-further-guide-to-paye-and-national-insurance-contributions",
+    "effective_from": "2026-04-06",
+    "effective_to": "2027-04-05",
+    "verified_on": "2026-11-02",
+    "rounding": "Exact-percentage total per earnings period rounded to nearest penny; exact half-penny rounded down.",
+    "notes": "Only category A employee contributions. UI supports 12 equal monthly pays; weekly helper exists for the official NI regression example. Annual NI is twelve rounded monthly charges, not an annual-threshold calculation.",
+    "verified_by": "Codex primary-source check; human review pending"
+  },
+  "official_examples": {
+    "income_tax_source_url": "https://www.gov.uk/government/statistics/income-tax-liabilities-statistics-tax-year-2023-to-2024-to-tax-year-2026-to-2027/bulletin-supporting-documentation",
+    "income_tax_source_title": "HMRC Income Tax Liabilities supporting documentation — Tables 2a and 2b",
+    "rest_of_uk": {
+      "annual_salary": 60000,
+      "taxable_income": 47430,
+      "income_tax": 11432,
+      "source_table": "2a"
+    },
+    "scotland": {
+      "annual_salary": 60000,
+      "taxable_income": 47430,
+      "income_tax_whole_pounds": 13182,
+      "source_table": "2b",
+      "notes": "HMRC publishes rounded whole-pound totals; the model produces 13182.05 before that display rounding."
+    },
+    "national_insurance": {
+      "weekly_pay": 1000,
+      "employee_ni": 58.66,
+      "source_url": "https://www.gov.uk/national-insurance-rates-letters"
+    },
+    "verified_on": "2026-11-02",
+    "notes": "These are component examples, not validation of a complete PAYE payslip. Human review and full launch approval remain pending."
+  },
+  "source_url": "https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027",
+  "source_title": "HMRC 2026 to 2027 employer rates and thresholds",
+  "notes": "Limited monthly category-A salary planning model; annual Income Tax averaging is not a PAYE payslip calculation."
+}

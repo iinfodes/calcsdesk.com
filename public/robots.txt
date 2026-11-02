@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /search
+Sitemap: https://calcsdesk.com/sitemap.xml
 
 # DATA-MOAT: training crawlers
 User-agent: GPTBot

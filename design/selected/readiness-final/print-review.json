@@ -1,0 +1,17 @@
+[
+  {
+    "page": "federal",
+    "printWidthOverflow": false,
+    "tables": 1
+  },
+  {
+    "page": "uk",
+    "printWidthOverflow": false,
+    "tables": 3
+  },
+  {
+    "page": "india",
+    "printWidthOverflow": false,
+    "tables": 4
+  }
+]

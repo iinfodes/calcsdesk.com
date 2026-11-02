@@ -1,0 +1,114 @@
+{
+  "tax_year": "2026-27",
+  "currency": "INR",
+  "review_status": "source-checked-human-review-pending",
+  "source_url": "https://www.incometaxindia.gov.in/documents/d/guest/income_tax_act_2025_as_amended_by_fa_act_2026-pdf",
+  "source_title": "Income-tax Act 2025 as amended by Finance Act 2026",
+  "effective_from": "2026-04-01",
+  "effective_to": "2027-03-31",
+  "verified_on": "2026-11-02",
+  "verified_by": "Codex enacted-primary-source check; human review pending",
+  "notes": "Current Tax Year 2026-27; resident individual under 60; ordinary fully taxable salary only; gross limited to 50 lakh. AY 2026-27 filing guidance describes the previous income year and is not the primary basis.",
+  "max_annual_salary": 5000000,
+  "old": {
+    "label": "Old regime",
+    "standard_deduction": 50000,
+    "brackets": [
+      {
+        "up_to": 250000,
+        "rate_bps": 0
+      },
+      {
+        "up_to": 500000,
+        "rate_bps": 500
+      },
+      {
+        "up_to": 1000000,
+        "rate_bps": 2000
+      },
+      {
+        "up_to": null,
+        "rate_bps": 3000
+      }
+    ],
+    "rebate_threshold": 500000,
+    "rebate_max": 12500,
+    "rebate_marginal_relief": false,
+    "standard_deduction_source_url": "https://www.incometaxindia.gov.in/documents/d/guest/income_tax_act_2025_as_amended_by_fa_act_2026-pdf",
+    "rebate_source_url": "https://www.incometaxindia.gov.in/documents/d/guest/income_tax_act_2025_as_amended_by_fa_act_2026-pdf",
+    "source_url": "https://www.incometaxindia.gov.in/documents/d/guest/finance-act-2026-pdf-1",
+    "source_title": "Finance Act 2026, section 3 and First Schedule Part I-B paragraph A(I); Income-tax Act 2025, sections 19 and 156(1)",
+    "effective_from": "2026-04-01",
+    "effective_to": "2027-03-31",
+    "verified_on": "2026-11-02",
+    "verified_by": "Codex enacted-primary-source check; human review pending",
+    "notes": "Under 60 only. Standard deduction is capped at salary. Additional deductions must be an already-eligible user-supplied aggregate excluding the standard deduction; eligibility is not calculated. No old-regime rebate marginal relief is applied."
+  },
+  "new": {
+    "label": "New regime",
+    "standard_deduction": 75000,
+    "brackets": [
+      {
+        "up_to": 400000,
+        "rate_bps": 0
+      },
+      {
+        "up_to": 800000,
+        "rate_bps": 500
+      },
+      {
+        "up_to": 1200000,
+        "rate_bps": 1000
+      },
+      {
+        "up_to": 1600000,
+        "rate_bps": 1500
+      },
+      {
+        "up_to": 2000000,
+        "rate_bps": 2000
+      },
+      {
+        "up_to": 2400000,
+        "rate_bps": 2500
+      },
+      {
+        "up_to": null,
+        "rate_bps": 3000
+      }
+    ],
+    "rebate_threshold": 1200000,
+    "rebate_max": 60000,
+    "rebate_marginal_relief": true,
+    "source_url": "https://www.incometaxindia.gov.in/documents/d/guest/income_tax_act_2025_as_amended_by_fa_act_2026-pdf",
+    "source_title": "Income-tax Act 2025, sections 19(1) table item 2, 156(2)-(3) and 202(1)",
+    "effective_from": "2026-04-01",
+    "effective_to": "2027-03-31",
+    "verified_on": "2026-11-02",
+    "verified_by": "Codex enacted-primary-source check; human review pending",
+    "notes": "Resident individual; ordinary slab income only. Above 12 lakh, marginal relief limits pre-cess slab tax to the excess income where applicable. No special-rate income or additional new-regime deductions modeled."
+  },
+  "cess": {
+    "rate_bps": 400,
+    "source_url": "https://www.incometaxindia.gov.in/documents/d/guest/finance-act-2026-pdf-1",
+    "source_title": "Finance Act 2026, section 3(15)",
+    "effective_from": "2026-04-01",
+    "effective_to": "2027-03-31",
+    "verified_on": "2026-11-02",
+    "verified_by": "Codex enacted-primary-source check; human review pending",
+    "notes": "Health and Education Cess after rebate/marginal relief. Surcharge excluded: gross salary capped at 50 lakh, so neither rounded taxable income exceeds 50 lakh."
+  },
+  "rounding": {
+    "multiple": 10,
+    "ignore_paise": true,
+    "source_url": "https://www.incometaxindia.gov.in/documents/d/guest/income_tax_act_2025_as_amended_by_fa_act_2026-pdf",
+    "source_title": "Income-tax Act 2025, section 516",
+    "effective_from": "2026-04-01",
+    "effective_to": "2027-03-31",
+    "verified_on": "2026-11-02",
+    "verified_by": "Codex enacted-primary-source check; human review pending",
+    "notes": "Round total income to nearest 10 rupees before slab/rebate calculation and final tax including cess to nearest 10 rupees. Ignore paise before determining the last rupee digit; five rounds up."
+  },
+  "year_source_url": "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/objective-and-scope-new-act-faq",
+  "worked_example_status": "Current-tax-year full official worked-example and human-review gates pending; tests use labeled CalcsDesk arithmetic illustrations, not fabricated official examples."
+}

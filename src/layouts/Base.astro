@@ -1,9 +1,10 @@
 ---
 import Brand from '../components/Brand.astro';
 import '../styles/global.css';
-interface Props { title: string; description: string; breadcrumb?: string; developmentMessage?: string; application?: { name: string; description: string }; ancestors?: { label: string; href: string }[]; }
-const { title, description, breadcrumb, developmentMessage = 'Development preview · First calculator in beta; more tools in preparation', application, ancestors = [] } = Astro.props;
-const canonical = new URL(Astro.url.pathname, 'https://calcsdesk.com').href;
+import { robotsForPath } from '../lib/page-policy.mjs';
+interface Props { title: string; description: string; breadcrumb?: string; developmentMessage?: string; application?: { name: string; description: string }; ancestors?: { label: string; href: string }[]; canonicalPath?: string; }
+const { title, description, breadcrumb, developmentMessage = 'Development preview · Limited calculators in beta; more tools in preparation', application, ancestors = [], canonicalPath } = Astro.props;
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, 'https://calcsdesk.com').href;
 const schema = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'WebSite', '@id': 'https://calcsdesk.com/#website', url: 'https://calcsdesk.com/', name: 'CalcsDesk', publisher: { '@type': 'Organization', name: 'Infodes' } },
   { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, isPartOf: { '@id': 'https://calcsdesk.com/#website' } },
@@ -15,7 +16,7 @@ const schema = { '@context': 'https://schema.org', '@graph': [
 <html lang="en">
   <head>
     <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title><meta name="description" content={description} /><meta name="robots" content="noindex, follow" />
+    <title>{title}</title><meta name="description" content={description} /><meta name="robots" content={robotsForPath(Astro.url.pathname)} />
     <link rel="canonical" href={canonical} /><link rel="icon" type="image/svg+xml" href="/icon.svg" /><meta name="theme-color" content="#4338CA" />
     <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" /><meta property="og:url" content={canonical} />
     <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
@@ -26,7 +27,7 @@ const schema = { '@context': 'https://schema.org', '@graph': [
     <header class="site-header"><div class="header-inner"><Brand /><nav class="desktop-nav" aria-label="Main navigation"><a href="/#calculators">Calculators</a><a href="/#countries">Countries</a><a href="/methodology/">Our methodology</a></nav><div class="header-actions"><button id="theme-toggle" class="icon-button" aria-label="Switch colour theme" title="Switch colour theme">◐</button><details class="mobile-menu"><summary aria-label="Navigation menu">☰</summary><nav aria-label="Mobile navigation"><a href="/#calculators">Calculators</a><a href="/#countries">Countries</a><a href="/methodology/">Methodology</a><a href="/sources/">Sources</a></nav></details></div></div></header>
     <div class="development-banner">{developmentMessage}</div>
     <main id="main" class="container">{breadcrumb && <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a>{ancestors.map(entry => <><span aria-hidden="true">›</span><a href={entry.href}>{entry.label}</a></>)}<span aria-hidden="true">›</span><span aria-current="page">{breadcrumb}</span></nav>}<slot /></main>
-    <footer class="site-footer"><div class="container footer-inner"><div><Brand small /><p>Calculators that show their working.</p><small>calcsdesk.com © {new Date().getFullYear()}</small></div><nav aria-label="Footer"><a href="/#countries">Countries</a><a href="/methodology/">Methodology</a><a href="/sources/">Sources</a></nav><p class="footer-note">Information and estimates, not tax, legal or financial advice.</p></div></footer>
+    <footer class="site-footer"><div class="container footer-inner"><div><Brand small /><p>Calculators that show their working.</p><small>calcsdesk.com © {new Date().getFullYear()}</small></div><nav aria-label="Footer"><a href="/about/">About</a><a href="/team/">Review status</a><a href="/editorial-policy/">Editorial policy</a><a href="/corrections/">Corrections</a><a href="/methodology/">Methodology</a><a href="/sources/">Sources</a><a href="/updates/">Updates</a></nav><p class="footer-note">Information and estimates, not tax, legal or financial advice.</p></div></footer>
     <script>
       const button = document.getElementById('theme-toggle');
       function setThemeLabel() {

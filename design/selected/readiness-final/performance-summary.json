@@ -1,0 +1,180 @@
+{
+  "context": "Local production build; sequential Lighthouse mobile lab measurements. Not field Core Web Vitals. Beta SEO scores reflect intentional noindex. A final whitespace-only heading fix was checked separately for responsive layout; no JavaScript or stylesheet changes followed these lab measurements.",
+  "pages": [
+    {
+      "page": "home",
+      "url": "/",
+      "lighthouse_version": "13.6.0",
+      "form_factor": "mobile",
+      "measured_at": "2026-11-02T14:04:34.147Z",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 757.9072000000001,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 1211.8608000000002,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 757.9072000000001,
+          "unit": "millisecond"
+        }
+      }
+    },
+    {
+      "page": "federal",
+      "url": "/us/tax/income-tax-calculator/",
+      "lighthouse_version": "13.6.0",
+      "form_factor": "mobile",
+      "measured_at": "2026-11-02T14:04:46.852Z",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 66
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 907.6574,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 907.6574,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 907.6574,
+          "unit": "millisecond"
+        }
+      }
+    },
+    {
+      "page": "uk",
+      "url": "/uk/pay/salary-calculator/",
+      "lighthouse_version": "13.6.0",
+      "form_factor": "mobile",
+      "measured_at": "2026-11-02T14:05:00.356Z",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 66
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 907.0681999999999,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 907.0681999999999,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 907.0681999999999,
+          "unit": "millisecond"
+        }
+      }
+    },
+    {
+      "page": "uae",
+      "url": "/ae/gratuity/gratuity-calculator/",
+      "lighthouse_version": "13.6.0",
+      "form_factor": "mobile",
+      "measured_at": "2026-11-02T14:05:12.992Z",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 66
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 757.6967,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 757.6967,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 757.6967,
+          "unit": "millisecond"
+        }
+      }
+    },
+    {
+      "page": "india",
+      "url": "/in/tax/income-tax-calculator/",
+      "lighthouse_version": "13.6.0",
+      "form_factor": "mobile",
+      "measured_at": "2026-11-02T14:05:25.554Z",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 66
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 905.7599,
+          "unit": "millisecond"
+        },
+        "largest-contentful-paint": {
+          "value": 905.7599,
+          "unit": "millisecond"
+        },
+        "total-blocking-time": {
+          "value": 0,
+          "unit": "millisecond"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "unit": "unitless"
+        },
+        "speed-index": {
+          "value": 905.7599,
+          "unit": "millisecond"
+        }
+      }
+    }
+  ]
+}
