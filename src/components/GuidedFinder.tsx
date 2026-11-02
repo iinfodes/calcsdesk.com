@@ -10,8 +10,8 @@ export default function GuidedFinder({ countryCode }: { countryCode: CountryCode
     <p class="eyebrow">Find your starting point</p><h2 id="finder-title">Start with your situation.</h2><p class="finder-intro">A local calculation starts with local rules.</p>
     <label for="finder-country">Your country</label><div id="finder-country" class="fixed-country"><span>{country.name}</span><a href="/#countries">Change</a></div>
     <label for="finder-tool">What would you like to work out?</label><select id="finder-tool" value={selected} onChange={event => setSelected(event.currentTarget.value)}>{choices.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select>
-    <div class="finder-recommendation" aria-live="polite"><span class="micro">Your starting point</span><h3>{tool.name}</h3><p>{tool.next} · in preparation</p></div>
-    <a class="primary-button" href={`#${tool.id}`}>See tool details <span aria-hidden="true">→</span></a>
-    <p class="finder-note">Calculators will open here once their rates and worked examples have been checked.</p><a class="text-link" href="/methodology/">How the working will be shown ↗</a>
+    <div class="finder-recommendation" aria-live="polite"><span class="micro">Your starting point</span><h3>{tool.name}</h3><p>{tool.availability === 'beta' ? 'Interactive beta · human review pending' : `${tool.next} · in preparation`}</p></div>
+    <a class="primary-button" href={tool.availability === 'beta' ? tool.path : `#${tool.id}`}>{tool.availability === 'beta' ? 'Open calculator' : 'See tool details'} <span aria-hidden="true">→</span></a>
+    <p class="finder-note">{tool.availability === 'beta' ? 'This first version covers a limited wage-only estimate. Check its assumptions before using it.' : 'This tool is in preparation. Beta tools are labelled in the collection below.'}</p><a class="text-link" href="/methodology/">How the working is shown ↗</a>
   </aside>;
 }

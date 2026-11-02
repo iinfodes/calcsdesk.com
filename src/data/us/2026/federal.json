@@ -1,0 +1,37 @@
+{
+  "tax_year": 2026,
+  "currency": "USD",
+  "review_status": "source-checked-human-review-pending",
+  "filing_statuses": [
+    {
+      "id": "single", "label": "Single", "standard_deduction": 16100,
+      "brackets": [{"up_to":12400,"rate_bps":1000},{"up_to":50400,"rate_bps":1200},{"up_to":105700,"rate_bps":2200},{"up_to":201775,"rate_bps":2400},{"up_to":256225,"rate_bps":3200},{"up_to":640600,"rate_bps":3500},{"up_to":null,"rate_bps":3700}],
+      "source_url": "https://www.irs.gov/irb/2025-45_IRB", "source_title": "Rev. Proc. 2025-32, sections 4.01 and 4.14", "effective_from": "2026-01-01", "effective_to": "2026-12-31", "verified_on": "2026-11-02", "verified_by": "Codex official-source check; human review pending", "notes": "Basic standard deduction only; no age, blindness or dependent adjustment."
+    },
+    {
+      "id": "married_joint", "label": "Married filing jointly", "standard_deduction": 32200,
+      "brackets": [{"up_to":24800,"rate_bps":1000},{"up_to":100800,"rate_bps":1200},{"up_to":211400,"rate_bps":2200},{"up_to":403550,"rate_bps":2400},{"up_to":512450,"rate_bps":3200},{"up_to":768700,"rate_bps":3500},{"up_to":null,"rate_bps":3700}],
+      "source_url": "https://www.irs.gov/irb/2025-45_IRB", "source_title": "Rev. Proc. 2025-32, sections 4.01 and 4.14", "effective_from": "2026-01-01", "effective_to": "2026-12-31", "verified_on": "2026-11-02", "verified_by": "Codex official-source check; human review pending", "notes": "Separate wage inputs preserve each spouse's Social Security cap."
+    },
+    {
+      "id": "married_separate", "label": "Married filing separately", "standard_deduction": 16100,
+      "brackets": [{"up_to":12400,"rate_bps":1000},{"up_to":50400,"rate_bps":1200},{"up_to":105700,"rate_bps":2200},{"up_to":201775,"rate_bps":2400},{"up_to":256225,"rate_bps":3200},{"up_to":384350,"rate_bps":3500},{"up_to":null,"rate_bps":3700}],
+      "source_url": "https://www.irs.gov/irb/2025-45_IRB", "source_title": "Rev. Proc. 2025-32, sections 4.01 and 4.14", "effective_from": "2026-01-01", "effective_to": "2026-12-31", "verified_on": "2026-11-02", "verified_by": "Codex official-source check; human review pending", "notes": "Assumes the spouse does not itemize. Community-property allocation is not modeled."
+    },
+    {
+      "id": "head_household", "label": "Head of household", "standard_deduction": 24150,
+      "brackets": [{"up_to":17700,"rate_bps":1000},{"up_to":67450,"rate_bps":1200},{"up_to":105700,"rate_bps":2200},{"up_to":201750,"rate_bps":2400},{"up_to":256200,"rate_bps":3200},{"up_to":640600,"rate_bps":3500},{"up_to":null,"rate_bps":3700}],
+      "source_url": "https://www.irs.gov/irb/2025-45_IRB", "source_title": "Rev. Proc. 2025-32, sections 4.01 and 4.14", "effective_from": "2026-01-01", "effective_to": "2026-12-31", "verified_on": "2026-11-02", "verified_by": "Codex official-source check; human review pending", "notes": "Filing-status eligibility is assumed, not determined by the calculator."
+    },
+    {
+      "id": "surviving_spouse", "label": "Qualifying surviving spouse", "standard_deduction": 32200,
+      "brackets": [{"up_to":24800,"rate_bps":1000},{"up_to":100800,"rate_bps":1200},{"up_to":211400,"rate_bps":2200},{"up_to":403550,"rate_bps":2400},{"up_to":512450,"rate_bps":3200},{"up_to":768700,"rate_bps":3500},{"up_to":null,"rate_bps":3700}],
+      "source_url": "https://www.irs.gov/irb/2025-45_IRB", "source_title": "Rev. Proc. 2025-32, sections 4.01 and 4.14", "effective_from": "2026-01-01", "effective_to": "2026-12-31", "verified_on": "2026-11-02", "verified_by": "Codex official-source check; human review pending", "notes": "Uses joint income-tax brackets, but not the joint Additional Medicare threshold."
+    }
+  ],
+  "payroll": {
+    "social_security": {"rate_bps":620,"wage_base":184500,"source_url":"https://www.ssa.gov/cola/factsheets/2026.html","source_title":"SSA 2026 COLA Fact Sheet — tax rates and maximum taxable earnings","effective_from":"2026-01-01","effective_to":"2026-12-31","verified_on":"2026-11-02","verified_by":"Codex official-source check; human review pending","notes":"Employee share; cap applies separately to each wage earner."},
+    "medicare": {"rate_bps":145,"source_url":"https://www.ssa.gov/cola/factsheets/2026.html","source_title":"SSA 2026 COLA Fact Sheet — Medicare employee rate","effective_from":"2026-01-01","effective_to":"2026-12-31","verified_on":"2026-11-02","verified_by":"Codex official-source check; human review pending","notes":"Employee share, with no wage cap."},
+    "additional_medicare": {"rate_bps":90,"thresholds":{"single":200000,"married_joint":250000,"married_separate":125000,"head_household":200000,"surviving_spouse":200000},"source_url":"https://www.irs.gov/businesses/small-businesses-self-employed/questions-and-answers-for-the-additional-medicare-tax","source_title":"IRS Additional Medicare Tax FAQ — filing status thresholds and calculation","effective_from":"2026-01-01","effective_to":"2026-12-31","verified_on":"2026-11-02","verified_by":"Codex official-source check; human review pending","notes":"Annual liability based on filing status, not employer withholding at $200,000."}
+  }
+}

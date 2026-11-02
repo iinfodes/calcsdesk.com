@@ -59,12 +59,22 @@
       "desktopOverflow": false,
       "mobileOverflow": false,
       "textZoomOverflow": false
+    },
+    {
+      "route": "/us/tax/income-tax-calculator/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
     }
   ],
   "errors": [],
   "search": "passed",
   "countryFilter": "passed",
   "guidedFinder": "passed",
+  "calculator": "passed",
+  "invalidAmount": "passed",
+  "offlineCalculation": "passed",
+  "sharedFragmentRestore": "passed",
   "themePersistence": "passed",
   "mobileNavigation": "passed",
   "noJSToolCount": 8

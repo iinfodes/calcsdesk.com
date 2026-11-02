@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "route": "/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/us/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/uk/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/ca/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/au/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/ae/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/in/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/methodology/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/sources/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/404.html",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    },
+    {
+      "route": "/us/tax/income-tax-calculator/",
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "textZoomOverflow": false
+    }
+  ],
+  "errors": [],
+  "search": "passed",
+  "countryFilter": "passed",
+  "guidedFinder": "passed",
+  "calculator": "passed",
+  "invalidAmount": "passed",
+  "offlineCalculation": "passed",
+  "sharedFragmentRestore": "passed",
+  "themePersistence": "passed",
+  "mobileNavigation": "passed",
+  "noJSToolCount": 8
+}

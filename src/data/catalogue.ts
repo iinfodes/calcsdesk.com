@@ -1,7 +1,7 @@
 export type CountryCode = 'us' | 'uk' | 'ca' | 'au' | 'ae' | 'in';
 export type Task = 'Pay' | 'Tax' | 'Benefits' | 'Loans';
 export interface Country { code: CountryCode; short: string; name: string; description: string; regionLabel: string; intro: string; source: string; publisher: string }
-export interface Tool { id: string; country: CountryCode; task: Task; name: string; description: string; next: string; path: string; scope: string[] }
+export interface Tool { id: string; country: CountryCode; task: Task; name: string; description: string; next: string; path: string; scope: string[]; availability?: 'beta' }
 
 export const countries: Country[] = [
   { code: 'us', short: 'US', name: 'United States', description: 'Paycheck, federal tax & student loans', regionLabel: 'State', intro: 'Start with your pay, federal income tax or student-loan calculation. State and local details belong with the relevant tool.', source: 'https://www.irs.gov/individuals/tax-withholding-estimator', publisher: 'Internal Revenue Service' },
@@ -19,12 +19,12 @@ export const tools: Tool[] = [
   { id: 'pay', country: 'au', task: 'Pay', name: 'Pay calculator', description: 'Understand your pay in Australia.', next: 'Australian pay', path: '/au/pay/pay-calculator/', scope: ['Income and pay period', 'Tax-year context', 'Deductions and take-home breakdown'] },
   { id: 'gratuity', country: 'ae', task: 'Benefits', name: 'Gratuity calculator', description: 'Work through an end-of-service estimate.', next: 'UAE employment', path: '/ae/gratuity/gratuity-calculator/', scope: ['Employment eligibility', 'Basic salary and service length', 'Formula and assumptions'] },
   { id: 'regime-comparison', country: 'in', task: 'Tax', name: 'Old vs new tax regime', description: 'Compare the two income-tax routes.', next: 'Compare tax regimes', path: '/in/tax/income-tax-calculator/', scope: ['Matching income inputs', 'Regime-specific deductions', 'Side-by-side calculation'] },
-  { id: 'federal-tax', country: 'us', task: 'Tax', name: 'Federal income tax', description: 'Follow the steps in a federal tax estimate.', next: 'Federal calculation', path: '/us/tax/income-tax-calculator/', scope: ['Filing status', 'Taxable income and deductions', 'Bracket-by-bracket working'] },
+  { id: 'federal-tax', country: 'us', task: 'Tax', name: 'Federal income tax', description: 'Estimate 2026 wage-only tax before credits.', next: 'Try the beta calculator', path: '/us/tax/income-tax-calculator/', availability: 'beta', scope: ['Five filing statuses and the basic deduction', 'Employee Social Security and Medicare', 'Annual bracket-by-bracket working'] },
   { id: 'rap', country: 'us', task: 'Loans', name: 'RAP student-loan calculator', description: 'Explore the planned repayment calculation.', next: 'Student-loan repayment', path: '/us/loans/rap-calculator/', scope: ['Repayment-plan eligibility', 'Income and household assumptions', 'Payment calculation and limitations'] },
 ];
 
 export const countryFor = (code: CountryCode) => countries.find(country => country.code === code)!;
-export const previewHref = (tool: Tool) => `/${tool.country}/#${tool.id}`;
+export const previewHref = (tool: Tool) => tool.availability === 'beta' ? tool.path : `/${tool.country}/#${tool.id}`;
 export function matchesQuery(tool: Tool, query: string): boolean {
   const country = countryFor(tool.country);
   const haystack = `${tool.name} ${tool.description} ${tool.task} ${country.name} ${country.short} ${country.code} ${tool.country === 'ae' ? 'gratuity dubai emirates' : ''}`.toLowerCase();
