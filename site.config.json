@@ -1,0 +1,11 @@
+{
+  "code": "AD01",
+  "domain": "calcsdesk.com",
+  "brand_name": "CalcsDesk",
+  "brand_primary": "#4338CA",
+  "brand_letter": "C",
+  "tagline": "Calculators that show their working",
+  "crawler_profile": "DATA-MOAT",
+  "launch_ready": false,
+  "design": { "home": 1, "countries": 4, "country_finder": 7 }
+}

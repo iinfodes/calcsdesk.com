@@ -1,0 +1,7 @@
+---
+const { small = false } = Astro.props;
+---
+<a href="/" class:list={['brand', { 'brand-small': small }]} aria-label="CalcsDesk home">
+  <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#4338CA" /><text x="32" y="46" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="43" font-weight="700" fill="white">C</text></svg>
+  <span class="brand-divider" aria-hidden="true"></span><span>CalcsDesk</span>
+</a>

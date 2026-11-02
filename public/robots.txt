@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /search
+
+# DATA-MOAT: training crawlers
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Meta-ExternalAgent
+User-agent: Amazonbot
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+# Bulk scrapers
+User-agent: Bytespider
+User-agent: img2dataset
+User-agent: Diffbot
+User-agent: Omgilibot
+Disallow: /

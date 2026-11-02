@@ -1,0 +1,74 @@
+// Isolated headless review of the local app; does not use a personal browser profile.
+const fs = require('fs');
+const path = require('path');
+const { createRequire } = require('module');
+const req = createRequire('C:/Program Files/WindowsApps/OpenAI.CodexPrimaryRuntime.v26-1026-487-0_26.1026.487.0_x64__3k8sg7r9htsxt/dependencies/node/node_modules/playwright/package.json');
+const { chromium } = req('playwright');
+const http = require('http');
+const out = path.resolve('design/selected');
+fs.mkdirSync(out, { recursive: true });
+(async () => {
+ const server = http.createServer((request, response) => {
+  const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
+  const relative = pathname.endsWith('/') ? pathname + 'index.html' : pathname;
+  const file = path.resolve('dist', '.' + relative);
+  if (!file.startsWith(path.resolve('dist') + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) { response.writeHead(404); response.end('Not found'); return; }
+  const mime = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml' };
+  response.setHeader('Content-Type', mime[path.extname(file)] || 'application/octet-stream');response.end(fs.readFileSync(file));
+ });
+ await new Promise(resolve => server.listen(4323, '127.0.0.1', resolve));
+ const browser = await chromium.launch({ headless: true, executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' });
+ const context = await browser.newContext({ colorScheme: 'light' });
+ const page = await context.newPage();
+ const errors = [];
+ page.on('pageerror', error => errors.push(error.message));
+ const checks = [];
+ for (const route of ['/', '/us/', '/uk/', '/ca/', '/au/', '/ae/', '/in/', '/methodology/', '/sources/', '/404.html']) {
+  const name = route === '/' ? 'home' : route.replaceAll('/', '').replace('.html', '');
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('http://127.0.0.1:4323' + route);
+  await page.locator('h1').waitFor();
+  await page.screenshot({ path: path.join(out, `${name}-desktop.png`), fullPage: true });
+  const desktopOverflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+  await page.getByRole('button', { name: 'Switch to dark theme' }).click();
+  await page.screenshot({ path: path.join(out, `${name}-dark.png`), fullPage: true });
+  await page.getByRole('button', { name: 'Switch to light theme' }).click();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: path.join(out, `${name}-mobile.png`), fullPage: true });
+  const mobileOverflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+  await page.evaluate(() => { const elements = [...document.querySelectorAll('body *')].map(element => [element, parseFloat(getComputedStyle(element).fontSize)]); elements.forEach(([element, size]) => element.style.fontSize = size * 2 + 'px'); });
+  const textZoomOverflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+  checks.push({ route, desktopOverflow, mobileOverflow, textZoomOverflow });
+ }
+ await page.goto('http://127.0.0.1:4323/');
+ await page.locator('#calculator-search').fill('UK salary');
+ await page.waitForFunction(() => document.querySelectorAll('.tool-card').length === 1);
+ if (!(await page.locator('.tool-card').textContent()).includes('Salary calculator')) throw new Error('Country alias search failed');
+ await page.locator('#calculator-search').fill('not-a-tool');
+ await page.getByRole('button', { name: 'Clear search and filters' }).click();
+ await page.getByRole('button', { name: 'Canada', exact: true }).click();
+ await page.waitForFunction(() => document.querySelectorAll('.tool-card').length === 1);
+ await page.locator('.tool-card').click();
+ await page.waitForURL('**/ca/#income-tax');
+ await page.goto('http://127.0.0.1:4323/us/');
+ await page.getByLabel('What would you like to work out?').selectOption('federal-tax');
+ await page.waitForFunction(() => document.querySelector('.finder-recommendation h3').textContent === 'Federal income tax');
+ await page.getByRole('link', { name: 'See tool details' }).click();
+ if (!page.url().endsWith('#federal-tax')) throw new Error('Finder destination failed');
+ await page.getByRole('button', { name: 'Switch to dark theme' }).click();
+ await page.reload();
+ if (await page.locator('html').getAttribute('data-theme') !== 'dark') throw new Error('Theme preference did not persist');
+ await page.getByRole('button', { name: 'Switch to light theme' }).click();
+ await page.locator('.mobile-menu summary').click();
+ if (!await page.locator('.mobile-menu nav').isVisible()) throw new Error('Mobile navigation failed');
+ const noJSContext = await browser.newContext({ javaScriptEnabled: false });
+ const noJSPage = await noJSContext.newPage();await noJSPage.goto('http://127.0.0.1:4323/');
+ const noJSToolCount = await noJSPage.locator('.tool-card').count();
+ if (noJSToolCount !== 8) throw new Error('Static calculator links missing without JavaScript');
+ await browser.close();
+ await new Promise(resolve => server.close(resolve));
+ const result = { checks, errors, search: 'passed', countryFilter: 'passed', guidedFinder: 'passed', themePersistence: 'passed', mobileNavigation: 'passed', noJSToolCount };
+ fs.writeFileSync(path.join(out, 'review-results.json'), JSON.stringify(result, null, 2));
+ console.log(JSON.stringify(result, null, 2));
+ if (errors.length || checks.some(check => check.desktopOverflow || check.mobileOverflow || check.textZoomOverflow)) process.exitCode = 1;
+})().catch(error => { console.error(error.message); process.exit(1); });

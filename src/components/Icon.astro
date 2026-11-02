@@ -1,0 +1,10 @@
+---
+const { name = 'Pay', size = 24 } = Astro.props;
+const paths: Record<string, string> = {
+  Pay: 'M4 7h16v13H4z M8 7V4h8v3 M4 12h16 M10 12v3h4v-3',
+  Tax: 'M5 3h14v18l-3-2-4 2-4-2-3 2z M9 7h6 M9 11h6 M9 15h3',
+  Benefits: 'M12 3v18 M3 12h18 M5 7h14v13H5z M12 7C6 7 6 1 9 3l3 4c6 0 6-6 3-4z',
+  Loans: 'M3 20h18 M5 16V9 M12 16V4 M19 16v-5',
+};
+---
+<svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={paths[name] || paths.Pay} /></svg>

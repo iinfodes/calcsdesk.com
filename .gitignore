@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.cache/
+.env
+.env.*
+!.env.example
+.wrangler/
+.DS_Store
+*.log
+
+# Owner handover and account operations stay local; the GitHub repository is public.
+KIT/
+CLAUDE.md
+DOMAIN_FILE.md
+ops/

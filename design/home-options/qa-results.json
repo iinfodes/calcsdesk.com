@@ -1,0 +1,101 @@
+[
+  {
+    "option": 1,
+    "mobileOverflow": false,
+    "textZoomOverflow": false,
+    "searchWorks": true,
+    "countryWorks": true,
+    "finderWorks": null,
+    "cardPreviewWorks": true,
+    "keyboardFocusVisible": true,
+    "scriptErrors": []
+  },
+  {
+    "option": 2,
+    "mobileOverflow": false,
+    "textZoomOverflow": false,
+    "searchWorks": null,
+    "countryWorks": null,
+    "finderWorks": true,
+    "cardPreviewWorks": true,
+    "keyboardFocusVisible": true,
+    "scriptErrors": []
+  },
+  {
+    "option": 3,
+    "mobileOverflow": false,
+    "textZoomOverflow": false,
+    "searchWorks": true,
+    "countryWorks": true,
+    "finderWorks": null,
+    "cardPreviewWorks": true,
+    "keyboardFocusVisible": true,
+    "scriptErrors": []
+  },
+  {
+    "option": 4,
+    "mobileOverflow": false,
+    "textZoomOverflow": false,
+    "searchWorks": null,
+    "countryWorks": true,
+    "finderWorks": null,
+    "cardPreviewWorks": true,
+    "keyboardFocusVisible": true,
+    "scriptErrors": []
+  },
+  {
+    "option": 5,
+    "mobileOverflow": false,
+    "textZoomOverflow": false,
+    "searchWorks": null,
+    "countryWorks": true,
+    "finderWorks": true,
+    "cardPreviewWorks": true,
+    "keyboardFocusVisible": true,
+    "scriptErrors": []
+  },
+  {
+    "option": 6,
+    "mobileOverflow": false,
+    "textZoomOverflow": false,
+    "searchWorks": null,
+    "countryWorks": true,
+    "finderWorks": null,
+    "cardPreviewWorks": true,
+    "keyboardFocusVisible": true,
+    "scriptErrors": []
+  },
+  {
+    "option": 7,
+    "mobileOverflow": false,
+    "textZoomOverflow": false,
+    "searchWorks": null,
+    "countryWorks": true,
+    "finderWorks": true,
+    "cardPreviewWorks": true,
+    "keyboardFocusVisible": true,
+    "scriptErrors": []
+  },
+  {
+    "option": 8,
+    "mobileOverflow": false,
+    "textZoomOverflow": false,
+    "searchWorks": null,
+    "countryWorks": null,
+    "finderWorks": true,
+    "cardPreviewWorks": true,
+    "keyboardFocusVisible": true,
+    "scriptErrors": []
+  },
+  {
+    "option": 9,
+    "mobileOverflow": false,
+    "textZoomOverflow": false,
+    "searchWorks": null,
+    "countryWorks": null,
+    "finderWorks": true,
+    "cardPreviewWorks": true,
+    "keyboardFocusVisible": true,
+    "scriptErrors": []
+  }
+]
