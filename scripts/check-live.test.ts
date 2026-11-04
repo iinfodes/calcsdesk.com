@@ -6,7 +6,7 @@ function publishedSite() {
   return async (url: string) => {
     const parsed = new URL(url);
     if (parsed.origin !== 'https://calcsdesk.com') return new Response(null, { status: 301, headers: { location: `https://calcsdesk.com${parsed.pathname}${parsed.search}` } });
-    if (parsed.pathname === '/sitemap.xml') return new Response('<urlset><url><loc>https://calcsdesk.com/</loc></url></urlset>');
+    if (parsed.pathname === '/sitemap.xml') return new Response('<urlset><url><loc>https://calcsdesk.com/</loc></url><url><loc>https://calcsdesk.com/methodology/</loc></url></urlset>');
     if (parsed.pathname === '/robots.txt') return new Response('Sitemap: https://calcsdesk.com/sitemap.xml');
     if (parsed.pathname.includes('__calcsdesk-release-check-missing__')) return new Response('<meta name="robots" content="noindex, follow">', { status: 404 });
     return new Response(`<meta name="robots" content="${robotsForPath(parsed.pathname)}"><link rel="canonical" href="${url}">`, { headers: { 'x-content-type-options': 'nosniff' } });

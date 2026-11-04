@@ -105,7 +105,7 @@ test('comparison uses independent inputs and removes stale results after invalid
   await expect(page.getByTestId('income-tax')).toHaveText('$7,670.00');
 });
 
-test('only the homepage is eligible for indexing and listed in the sitemap', async ({ request }) => {
+test('the homepage and methodology are indexable and listed in the sitemap', async ({ request }) => {
   const home = await request.get('/');
   expect(home.ok()).toBeTruthy();
   expect(await home.text()).toContain('content="index, follow,');
@@ -114,8 +114,9 @@ test('only the homepage is eligible for indexing and listed in the sitemap', asy
     expect(response.status()).toBe(200);
     expect(await response.text()).toContain('content="noindex, follow"');
   }
+  expect(await (await request.get('/methodology/')).text()).toContain('content="index, follow,');
   const sitemap = await request.get('/sitemap.xml');
-  expect((await sitemap.text()).match(/<loc>.*?<\/loc>/g)).toEqual(['<loc>https://calcsdesk.com/</loc>']);
+  expect((await sitemap.text()).match(/<loc>.*?<\/loc>/g)).toEqual(['<loc>https://calcsdesk.com/</loc>', '<loc>https://calcsdesk.com/methodology/</loc>']);
 });
 
 test('useful links and source tables survive disabled JavaScript', async ({ browser, baseURL }) => {

@@ -1,6 +1,6 @@
 // Release readiness is explicit: an unknown or newly added route never indexes by default.
 export const SITE_ORIGIN = 'https://calcsdesk.com';
-export const INDEXABLE_PATHS = Object.freeze(['/']);
+export const INDEXABLE_PATHS = Object.freeze(['/', '/methodology/']);
 
 export function isIndexablePath(pathname) {
   return typeof pathname === 'string' && INDEXABLE_PATHS.includes(pathname);

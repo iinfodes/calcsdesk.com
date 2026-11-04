@@ -24,7 +24,7 @@ export async function checkLiveSite(fetcher = fetch) {
     require(html.includes(`name="robots" content="${robotsForPath(route)}"`), 'robots policy mismatch');
     require(html.includes(`rel="canonical" href="${SITE_ORIGIN}${route}"`), 'canonical mismatch');
     require(response.headers.get('x-content-type-options') === 'nosniff', 'missing nosniff security header');
-    if (route === '/') require(!/\bnoindex\b|\bnone\b/i.test(response.headers.get('x-robots-tag') || ''), 'HTTP header blocks home indexing');
+    if (indexableUrls().includes(SITE_ORIGIN + route)) require(!/\bnoindex\b|\bnone\b/i.test(response.headers.get('x-robots-tag') || ''), 'HTTP header blocks home indexing');
     require(!/adsbygoogle|googlesyndication|mailto:/i.test(html), 'unexpected advertising or email link');
   })));
   await run('released sitemap', async () => {
