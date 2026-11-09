@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import { countries } from '../../data/catalogue';
+import us from '../../data/us/2026/withholding.json';
+import uk from '../../data/uk/2026-27/salary.json';
+import ca from '../../data/ca/2026/jurisdictions.json';
+import au from '../../data/au/2026-27/income-tax.json';
+import ae from '../../data/ae/gratuity-2026.json';
+import india from '../../data/in/2026-27/regimes.json';
+
+const references = {
+  us: { path: '/us/pay/paycheck-calculator/', summary: 'Worksheet 1A annualizes regular wages and selects a schedule using W-4 filing status and the Step 2 checkbox.', links: [{ url: us.source_url, label: 'IRS Publication 15-T withholding schedules' }] },
+  uk: { path: '/uk/pay/salary-calculator/', summary: 'Compare annual Income Tax and monthly employee National Insurance separately. Use the same UK nation and pay period when checking results.', links: [{ url: uk.source_url, label: 'HMRC employer rates and thresholds' }] },
+  ca: { path: '/ca/tax/income-tax-calculator/', summary: 'The federal and regional schedules apply to ordinary taxable income before credits. Quebec publishes its own provincial schedule.', links: [...new Set(ca.jurisdictions.map(region => region.source_url))].map((url, index) => ({ url, label: index === 0 ? 'CRA federal and regional schedules' : 'Revenu Québec provincial schedule' })) },
+  au: { path: '/au/pay/pay-calculator/', summary: 'Schedule 7 supplies the resident marginal bands. The preview applies them before offsets and Medicare levies.', links: [{ url: au.source_url, label: au.source_title }] },
+  ae: { path: '/ae/gratuity/gratuity-calculator/', summary: 'Check basic wage and qualifying service against the federal private-sector rules. The preview excludes cases affected by the cap.', links: [{ url: ae.source_url, label: 'Federal labour decree-law, including Article 51' }] },
+  in: { path: '/in/tax/income-tax-calculator/', summary: 'Compare the deductions and rebate under each regime before comparing the final amounts. The preview covers a limited ordinary-salary case.', links: [{ url: india.source_url, label: 'Official income tax legislation' }] },
+};
+
+export function getStaticPaths() {
+  return countries.map(country => ({ params: { country: country.code }, props: { country } }));
+}
+const { country } = Astro.props;
+const reference = references[country.code];
+---
+<Base title={`${country.name} calculator sources | CalcsDesk`}
+  description={`Official references and scope for CalcsDesk calculations in ${country.name}.`}
+  breadcrumb={country.name} ancestors={[{ label: 'Sources', href: '/sources/' }]}>
+  <article class="reading-page">
+    <h1>{country.name} calculator sources</h1>
+    <p class="lead">{reference.summary}</p>
+    <h2>Official references</h2>
+    <ul>
+      <li><a href={country.source}>{country.publisher}</a></li>
+      {reference.links.map(link => <li><a href={link.url}>{link.label}</a></li>)}
+    </ul>
+    <p><a href={reference.path}>Open the calculator and see its dated source records</a>.</p>
+    <p><a href={`/${country.code}/`}>{country.name} calculators</a> · <a href="/methodology/">How we check results</a></p>
+  </article>
+</Base>

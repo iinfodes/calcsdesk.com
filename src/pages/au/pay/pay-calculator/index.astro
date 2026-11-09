@@ -1,0 +1,22 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import AustralianTaxPreview from '../../../../components/AustralianTaxPreview';
+import { australianIncomeTaxData as rates } from '../../../../calc/au/income-tax';
+---
+<Base title="Australia 2026–27 resident income tax preview | CalcsDesk"
+  description="Estimate Australian resident bracket tax on annual taxable income for 2026–27, before offsets and levies."
+  breadcrumb="Australia bracket tax preview">
+  <article class="reading-page">
+    <p class="eyebrow">Australia · 2026–27 preview</p>
+    <h1>Australian resident income tax brackets</h1>
+    <p class="lead">Estimate bracket tax for a full-year Australian resident aged 18 or over. Start with ordinary taxable income after deductions.</p>
+    <p>The result excludes offsets, Medicare levies, HELP repayments and superannuation. It covers annual bracket tax only.</p>
+    <AustralianTaxPreview client:load />
+    <h2>How the estimate works</h2>
+    <p>Each marginal rate applies to income in its band. The preview adds the band amounts before rounding the total to cents.</p>
+    <p>Rates apply from 1 July 2026 to 30 June 2027. Last checked <time datetime={rates.verified_on}>2 November 2026</time>.</p>
+    <p><a href={rates.source_url}>{rates.source_title}</a></p>
+    <p>Qualified review and official worked-example verification are pending.</p>
+    <p><a href="/au/">Australia calculator collection</a> · <a href="/methodology/">Calculation methodology</a></p>
+  </article>
+</Base>

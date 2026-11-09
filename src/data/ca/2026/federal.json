@@ -10,7 +10,7 @@
   "effective_to": "2026-12-31",
   "verified_on": "2026-11-02",
   "verified_by": "Codex official CRA source check; human review pending",
-  "notes": "CRA identifies these rates for income earned in 2026 and the return filed in 2027. No basic personal amount or other tax credits, provincial/territorial tax, Quebec abatement, additional taxes, minimum tax, CPP/QPP, EI, deductions from gross income, special income treatment or nonresident/part-year rules. Input is already ordinary taxable income. No public route is released. Total rounded once to nearest cent, half up, as a component display convention pending official worked-example review; this is not a T1 filing/rounding implementation.",
+  "notes": "CRA identifies these rates for income earned in 2026 and the return filed in 2027. No basic personal amount or other tax credits, provincial/territorial tax, Quebec abatement, additional taxes, minimum tax, CPP/QPP, EI, deductions from gross income, special income treatment or nonresident/part-year rules. Input is already ordinary taxable income. Used by the Canadian bracket preview. Total rounded once to nearest cent, half up, as a component display convention pending official worked-example review; this is not a T1 filing/rounding implementation.",
   "official_worked_examples": { "required": 2, "verified": 0, "status": "pending; schedule checkpoints are locally calculated, not official worked examples" },
   "brackets": [
     { "up_to": 58523, "rate_bps": 1400 },

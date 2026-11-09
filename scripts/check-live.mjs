@@ -1,8 +1,8 @@
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
-import { SITE_ORIGIN, indexableUrls, robotsForPath } from '../src/lib/page-policy.mjs';
+import { INDEXABLE_PATHS, SITE_ORIGIN, indexableUrls, robotsForPath } from '../src/lib/page-policy.mjs';
 
-export const LIVE_ROUTES = Object.freeze(['/', '/us/', '/uk/', '/ca/', '/au/', '/ae/', '/in/', '/about/', '/team/', '/editorial-policy/', '/corrections/', '/updates/', '/methodology/', '/sources/', '/us/tax/income-tax-calculator/', '/uk/pay/salary-calculator/', '/ae/gratuity/gratuity-calculator/', '/in/tax/income-tax-calculator/']);
+export const LIVE_ROUTES = INDEXABLE_PATHS;
 
 /**
  * Read-only post-deployment smoke check. It does not submit indexing requests or user data.

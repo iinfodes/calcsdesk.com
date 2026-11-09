@@ -1,0 +1,47 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import CanadianBracketPreview from '../../../../components/CanadianBracketPreview';
+import { canadianRegions } from '../../../../calc/ca/jurisdictions';
+import { calculateBracketTax } from '../../../../calc/ca/federal';
+import rates from '../../../../data/ca/2026/jurisdictions.json';
+
+export function getStaticPaths() {
+  return canadianRegions.map(region => ({ params: { province: region.slug }, props: { region } }));
+}
+
+const { region } = Astro.props;
+const money = new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 });
+const rate = (bps: number) => `${bps / 100}%`;
+const exampleIncome = 100_000;
+const exampleTax = calculateBracketTax(exampleIncome, region.brackets).tax;
+const exampleMoney = new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' });
+---
+<Base title={`2026 ${region.name} income tax bracket preview | CalcsDesk`}
+  description={`Calculate federal and ${region.name} bracket tax on 2026 taxable income. See the regional thresholds, rates and official source.`}
+  breadcrumb={`${region.name} income tax brackets`}>
+  <article class="reading-page">
+    <p class="eyebrow">Canada · 2026 preview</p>
+    <h1>{region.name} income tax brackets</h1>
+    <p class="lead">Estimate the federal and {region.name} bracket amounts on annual ordinary taxable income in Canadian dollars.</p>
+    <p>Enter taxable income after deductions. Credits, surtaxes, payroll contributions, the Quebec federal abatement and final tax payable are outside this preview.</p>
+    <CanadianBracketPreview fixedRegion={region.name} client:load />
+    <h2>{region.name} marginal rates for 2026</h2>
+    <table>
+      <caption>Regional rates by annual taxable income band</caption>
+      <thead><tr><th scope="col">Income band (CAD)</th><th scope="col">Marginal rate</th></tr></thead>
+      <tbody>
+        {region.brackets.map((band, index) => (
+          <tr>
+            <td>{index === 0 ? `Up to ${money.format(band.up_to!)}`
+              : band.up_to === null ? `Over ${money.format(region.brackets[index - 1].up_to!)}`
+              : `Over ${money.format(region.brackets[index - 1].up_to!)} up to ${money.format(band.up_to)}`}</td>
+            <td>{rate(band.rate_bps)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p>For illustration, {money.format(exampleIncome)} in ordinary taxable income gives {exampleMoney.format(exampleTax)} in {region.name} bracket tax before adjustments. Each rate applies only to the portion of income in its band. Federal and regional amounts are calculated and rounded separately.</p>
+    <p>Regional schedule checked <time datetime={rates.verified_on}>4 November 2026</time>. Qualified review and official worked-example checks are pending.</p>
+    <p><a href="/ca/tax/income-tax-calculator/">Compare other provinces and territories</a> · <a href="/methodology/">Calculation methodology</a></p>
+  </article>
+</Base>

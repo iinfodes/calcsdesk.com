@@ -1,0 +1,33 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import FederalWithholdingPreview from '../../../../components/FederalWithholdingPreview';
+import { paycheckRegions } from '../../../../data/us/2026/paycheck-regions';
+import federal from '../../../../data/us/2026/withholding.json';
+
+export function getStaticPaths() {
+  return paycheckRegions.map(region => ({ params: { state: region.slug }, props: { region } }));
+}
+const { region } = Astro.props;
+---
+<Base title={`2026 ${region.name} paycheck withholding preview | CalcsDesk`}
+  description={`Estimate regular federal paycheck withholding and see how to account for ${region.name} wage income tax in 2026.`}
+  breadcrumb={`${region.name} paycheck preview`}>
+  <article class="reading-page">
+    <p class="eyebrow">United States · 2026 preview</p>
+    <h1>{region.name} paycheck withholding preview</h1>
+    <p class="lead">Estimate federal income tax withholding for regular wages with a 2020 or later Form W-4.</p>
+    <p>{region.rateBps === 0 ? `${region.name} has no state income tax withholding on ordinary wages in 2026.`
+      : region.rateBps === null ? `Enter your ${region.name} withholding separately to see the combined federal and state amount.`
+      : `The preview applies the ${region.rateBps / 100}% state rate to the Pennsylvania taxable wages you enter.`}</p>
+    <p>{region.note}</p>
+    <FederalWithholdingPreview region={region} client:load />
+    <h2>Sources and scope</h2>
+    <p>The combined figure covers federal and state income tax withholding only. It excludes Social Security, Medicare, local taxes, employee premiums and other deductions. Official worked-example checks and qualified review are pending.</p>
+    <p>Sources checked <time datetime={federal.verified_on}>6 November 2026</time>.</p>
+    <ul>
+      <li><a href={federal.source_url}>IRS Publication 15-T federal withholding schedules</a></li>
+      <li><a href={region.source}>{region.name} tax or employer guidance</a></li>
+    </ul>
+    <p><a href="/us/pay/paycheck-calculator/">Compare state paycheck previews</a> · <a href="/methodology/">Calculation methodology</a></p>
+  </article>
+</Base>

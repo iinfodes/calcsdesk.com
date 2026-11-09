@@ -6,13 +6,18 @@ const roundedDollars = (numerator: number) => Number((BigInt(numerator) + 5000n)
 
 /** Ordinary taxable-income schedule component only; no credits or provincial tax. */
 export function calculateCanadianFederalTax(taxableIncome: number) {
+  const result = calculateBracketTax(taxableIncome, canadianFederalData.brackets);
+  return { taxableIncome, federalBracketTaxBeforeCredits: result.tax, bands: result.bands };
+}
+
+export function calculateBracketTax(taxableIncome: number, brackets: readonly { up_to: number | null; rate_bps: number }[]) {
   if (!Number.isFinite(taxableIncome) || taxableIncome < 0 || taxableIncome > MAX_CA_TAXABLE_INCOME || Math.abs(taxableIncome * 100 - Math.round(taxableIncome * 100)) > 0.0001) {
     throw new RangeError('Enter taxable income from 0 to 10,000,000 CAD with at most two decimal places.');
   }
   const incomeCents = Math.round(taxableIncome * 100);
   let lowerCents = 0;
   let numerator = 0;
-  const bands = canadianFederalData.brackets.map(row => {
+  const bands = brackets.map(row => {
     const ceiling = row.up_to === null ? incomeCents : row.up_to * 100;
     const amountCents = Math.max(0, Math.min(incomeCents, ceiling) - lowerCents);
     const bandNumerator = amountCents * row.rate_bps;
@@ -21,5 +26,5 @@ export function calculateCanadianFederalTax(taxableIncome: number) {
     if (row.up_to !== null) lowerCents = ceiling;
     return band;
   });
-  return { taxableIncome, federalBracketTaxBeforeCredits: roundedDollars(numerator), bands };
+  return { tax: roundedDollars(numerator), bands };
 }

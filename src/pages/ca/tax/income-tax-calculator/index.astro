@@ -1,0 +1,24 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import CanadianBracketPreview from '../../../../components/CanadianBracketPreview';
+import rates from '../../../../data/ca/2026/jurisdictions.json';
+import { canadianRegions } from '../../../../calc/ca/jurisdictions';
+---
+<Base title="2026 Canada provincial income tax bracket preview | CalcsDesk"
+  description="Calculate the 2026 federal and regional income tax bracket components on ordinary taxable income before credits."
+  breadcrumb="Canada tax bracket preview">
+  <article class="reading-page">
+    <p class="eyebrow">Canada · 2026 preview</p>
+    <h1>Federal and regional income tax brackets</h1>
+    <p class="lead">Calculate the federal and regional bracket components before credits using your ordinary taxable income in Canadian dollars.</p>
+    <p>The results exclude credits, surtaxes, payroll contributions and the Quebec federal abatement.</p><CanadianBracketPreview client:load />
+    <h2>Calculation scope</h2><p><strong>Review status</strong> Official schedules have been checked. Qualified review and official worked-example checks are pending.</p>
+    <p>The inputs start with taxable income after deductions. The estimate covers the federal schedule and one provincial or territorial schedule for 2026. Credits, payroll contributions, surtaxes, the Quebec federal abatement and final tax payable are outside this preview.</p>
+    <h2>How the brackets work</h2>
+    <p>Each rate applies to the portion of income in its band. The calculator sums the band amounts for each jurisdiction and rounds each component to cents.</p>
+    <p><a href={rates.jurisdictions[0].source_url}>Canada Revenue Agency 2026 federal and provincial brackets</a>. Regional rates checked <time datetime={rates.verified_on}>4 November 2026</time>.</p>
+    <p><a href="/ca/">Canada calculator collection</a> · <a href="/methodology/">Calculation methodology</a></p>
+    <h2>Provincial and territorial previews</h2>
+    <ul>{canadianRegions.map(region => <li><a href={`/ca/tax/income-tax-calculator/${region.slug}/`}>{region.name} bracket preview</a></li>)}</ul>
+  </article>
+</Base>

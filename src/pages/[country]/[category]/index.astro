@@ -1,0 +1,29 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { countryFor } from '../../../data/catalogue';
+import { paycheckRegions } from '../../../data/us/2026/paycheck-regions';
+import { canadianRegions } from '../../../calc/ca/jurisdictions';
+
+export function getStaticPaths() {
+  const nationalPay = '/us/pay/paycheck-calculator/';
+  const canadianTax = '/ca/tax/income-tax-calculator/';
+  return [
+    { country: 'us', category: 'pay', label: 'US paycheck withholding', description: 'Estimate federal withholding on a regular paycheck and choose a state preview for its state withholding options.', links: [{ path: nationalPay, label: 'National federal withholding preview' }, ...paycheckRegions.map(region => ({ path: nationalPay + region.slug + '/', label: region.name }))] },
+    { country: 'ca', category: 'tax', label: 'Canadian income tax brackets', description: 'Compare federal and regional bracket tax before adjustments. Choose a province or territory to see its rates.', links: [{ path: canadianTax, label: 'Federal and regional selector' }, ...canadianRegions.map(region => ({ path: canadianTax + region.slug + '/', label: region.name }))] },
+    { country: 'uk', category: 'pay', label: 'UK salary calculations', description: 'Estimate annual Income Tax and employee National Insurance for twelve equal monthly payments. Choose your UK nation in the calculator.', links: [{ path: '/uk/pay/salary-calculator/', label: 'Monthly salary calculator beta' }] },
+    { country: 'us', category: 'tax', label: 'US federal income tax', description: 'Estimate annual wage-only federal income tax before credits. For per-paycheck withholding, use the separate W-4 preview.', links: [{ path: '/us/tax/income-tax-calculator/', label: 'Annual federal income tax calculator' }, { path: nationalPay, label: 'Per-paycheck withholding preview' }] },
+  ].map(hub => ({ params: { country: hub.country, category: hub.category }, props: { hub } }));
+}
+const { hub } = Astro.props;
+const country = countryFor(hub.country as 'us' | 'ca' | 'uk');
+---
+<Base title={`${hub.label} tools | CalcsDesk`} description={hub.description}
+  breadcrumb={hub.label} ancestors={[{ label: country.name, href: `/${country.code}/` }]}>
+  <article class="reading-page">
+    <h1>{hub.label}</h1>
+    <p class="lead">{hub.description}</p>
+    <h2>Available previews</h2>
+    <ul>{hub.links.map(link => <li><a href={link.path}>{link.label}</a></li>)}</ul>
+    <p><a href={`/sources/${country.code}/`}>Official references for {country.name}</a> · <a href="/methodology/">Calculation methodology</a></p>
+  </article>
+</Base>

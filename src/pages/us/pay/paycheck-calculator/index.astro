@@ -1,0 +1,24 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import FederalWithholdingPreview from '../../../../components/FederalWithholdingPreview';
+import data from '../../../../data/us/2026/withholding.json';
+import { paycheckRegions } from '../../../../data/us/2026/paycheck-regions';
+---
+<Base title="2026 US paycheck federal withholding preview | CalcsDesk"
+  description="Estimate 2026 federal income tax withholding on a regular paycheck using your W-4 and pay frequency."
+  breadcrumb="Federal paycheck withholding preview">
+  <article class="reading-page">
+    <p class="eyebrow">United States · 2026 preview</p>
+    <h1>Federal income tax withholding per paycheck</h1>
+    <p class="lead">Estimate federal income tax withholding for regular wages using a 2020 or later Form W-4. Start with the federal taxable wages for one pay period.</p>
+    <p>This preview excludes Social Security, Medicare, state and local taxes, supplemental wages and special withholding rules.</p>
+    <FederalWithholdingPreview client:load />
+    <h2>How the estimate works</h2>
+    <p>The worksheet converts wages to an annual amount and applies your W-4 adjustments. It then uses the matching IRS rate schedule, accounts for annual credits, and adds any extra withholding requested per paycheck.</p>
+    <p>Rates and worksheet checked <time datetime={data.verified_on}>6 November 2026</time>. Official worked-example checks and qualified review are pending.</p>
+    <p><a href={data.source_url}>IRS Publication 15-T, Worksheet 1A and annual percentage method tables</a></p>
+    <p><a href="/us/">US calculator collection</a> · <a href="/us/tax/income-tax-calculator/">Annual federal income tax beta</a></p>
+    <h2>State paycheck previews</h2>
+    <ul>{paycheckRegions.map(region => <li><a href={`/us/pay/paycheck-calculator/${region.slug}/`}>{region.name} withholding preview</a></li>)}</ul>
+  </article>
+</Base>

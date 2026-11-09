@@ -105,18 +105,21 @@ test('comparison uses independent inputs and removes stale results after invalid
   await expect(page.getByTestId('income-tax')).toHaveText('$7,670.00');
 });
 
-test('the homepage and methodology are indexable and listed in the sitemap', async ({ request }) => {
-  const home = await request.get('/');
-  expect(home.ok()).toBeTruthy();
-  expect(await home.text()).toContain('content="index, follow,');
-  for (const path of [calculator, '/us/', '/about/', '/team/', '/editorial-policy/', '/corrections/', '/updates/']) {
-    const response = await request.get(path);
-    expect(response.status()).toBe(200);
-    expect(await response.text()).toContain('content="noindex, follow"');
-  }
-  expect(await (await request.get('/methodology/')).text()).toContain('content="index, follow,');
+test('all 95 sitemap entries are canonical and indexable', async ({ request }) => {
   const sitemap = await request.get('/sitemap.xml');
-  expect((await sitemap.text()).match(/<loc>.*?<\/loc>/g)).toEqual(['<loc>https://calcsdesk.com/</loc>', '<loc>https://calcsdesk.com/methodology/</loc>']);
+  expect(sitemap.ok()).toBeTruthy();
+  const urls = [...(await sitemap.text()).matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+  expect(new Set(urls).size).toBe(95);
+  expect(urls).toHaveLength(95);
+  for (const url of urls) {
+    const canonical = new URL(url);
+    expect(canonical.origin).toBe('https://calcsdesk.com');
+    const response = await request.get(canonical.pathname);
+    expect(response.ok()).toBeTruthy();
+    const html = await response.text();
+    expect(html).toContain('content="index, follow,');
+    expect(html).toContain('<link rel="canonical" href="' + url + '">');
+  }
 });
 
 test('useful links and source tables survive disabled JavaScript', async ({ browser, baseURL }) => {

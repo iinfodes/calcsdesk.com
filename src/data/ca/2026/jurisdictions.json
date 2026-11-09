@@ -1,0 +1,343 @@
+{
+  "tax_year": 2026,
+  "currency": "CAD",
+  "effective_from": "2026-01-01",
+  "effective_to": "2026-12-31",
+  "verified_on": "2026-11-04",
+  "jurisdictions": [
+    {
+      "name": "Alberta",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 61200,
+          "rate_bps": 800
+        },
+        {
+          "up_to": 154259,
+          "rate_bps": 1000
+        },
+        {
+          "up_to": 185111,
+          "rate_bps": 1200
+        },
+        {
+          "up_to": 246813,
+          "rate_bps": 1300
+        },
+        {
+          "up_to": 370220,
+          "rate_bps": 1400
+        },
+        {
+          "up_to": null,
+          "rate_bps": 1500
+        }
+      ]
+    },
+    {
+      "name": "British Columbia",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 50363,
+          "rate_bps": 560
+        },
+        {
+          "up_to": 100728,
+          "rate_bps": 770
+        },
+        {
+          "up_to": 115648,
+          "rate_bps": 1050
+        },
+        {
+          "up_to": 140430,
+          "rate_bps": 1229
+        },
+        {
+          "up_to": 190405,
+          "rate_bps": 1470
+        },
+        {
+          "up_to": 265545,
+          "rate_bps": 1680
+        },
+        {
+          "up_to": null,
+          "rate_bps": 2050
+        }
+      ]
+    },
+    {
+      "name": "Manitoba",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 47564,
+          "rate_bps": 1080
+        },
+        {
+          "up_to": 101200,
+          "rate_bps": 1275
+        },
+        {
+          "up_to": null,
+          "rate_bps": 1740
+        }
+      ]
+    },
+    {
+      "name": "New Brunswick",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 52333,
+          "rate_bps": 940
+        },
+        {
+          "up_to": 104666,
+          "rate_bps": 1400
+        },
+        {
+          "up_to": 193861,
+          "rate_bps": 1600
+        },
+        {
+          "up_to": null,
+          "rate_bps": 1950
+        }
+      ]
+    },
+    {
+      "name": "Newfoundland and Labrador",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 44678,
+          "rate_bps": 870
+        },
+        {
+          "up_to": 89354,
+          "rate_bps": 1450
+        },
+        {
+          "up_to": 159528,
+          "rate_bps": 1580
+        },
+        {
+          "up_to": 223340,
+          "rate_bps": 1780
+        },
+        {
+          "up_to": 285319,
+          "rate_bps": 1980
+        },
+        {
+          "up_to": 570638,
+          "rate_bps": 2080
+        },
+        {
+          "up_to": 1141275,
+          "rate_bps": 2130
+        },
+        {
+          "up_to": null,
+          "rate_bps": 2180
+        }
+      ]
+    },
+    {
+      "name": "Northwest Territories",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 53003,
+          "rate_bps": 590
+        },
+        {
+          "up_to": 106009,
+          "rate_bps": 860
+        },
+        {
+          "up_to": 172346,
+          "rate_bps": 1220
+        },
+        {
+          "up_to": null,
+          "rate_bps": 1405
+        }
+      ]
+    },
+    {
+      "name": "Nova Scotia",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 30995,
+          "rate_bps": 879
+        },
+        {
+          "up_to": 61991,
+          "rate_bps": 1495
+        },
+        {
+          "up_to": 97417,
+          "rate_bps": 1667
+        },
+        {
+          "up_to": 157124,
+          "rate_bps": 1750
+        },
+        {
+          "up_to": null,
+          "rate_bps": 2100
+        }
+      ]
+    },
+    {
+      "name": "Nunavut",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 55801,
+          "rate_bps": 400
+        },
+        {
+          "up_to": 111602,
+          "rate_bps": 700
+        },
+        {
+          "up_to": 181439,
+          "rate_bps": 900
+        },
+        {
+          "up_to": null,
+          "rate_bps": 1150
+        }
+      ]
+    },
+    {
+      "name": "Ontario",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 53891,
+          "rate_bps": 505
+        },
+        {
+          "up_to": 107785,
+          "rate_bps": 915
+        },
+        {
+          "up_to": 150000,
+          "rate_bps": 1116
+        },
+        {
+          "up_to": 220000,
+          "rate_bps": 1216
+        },
+        {
+          "up_to": null,
+          "rate_bps": 1316
+        }
+      ]
+    },
+    {
+      "name": "Prince Edward Island",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 33928,
+          "rate_bps": 950
+        },
+        {
+          "up_to": 65820,
+          "rate_bps": 1347
+        },
+        {
+          "up_to": 106890,
+          "rate_bps": 1660
+        },
+        {
+          "up_to": 142520,
+          "rate_bps": 1762
+        },
+        {
+          "up_to": 200000,
+          "rate_bps": 1900
+        },
+        {
+          "up_to": null,
+          "rate_bps": 2000
+        }
+      ]
+    },
+    {
+      "name": "Quebec",
+      "source_url": "https://www.revenuquebec.ca/en/citizens/income-tax-return/completing-your-income-tax-return/income-tax-rates/",
+      "brackets": [
+        {
+          "up_to": 54345,
+          "rate_bps": 1400
+        },
+        {
+          "up_to": 108680,
+          "rate_bps": 1900
+        },
+        {
+          "up_to": 132245,
+          "rate_bps": 2400
+        },
+        {
+          "up_to": null,
+          "rate_bps": 2575
+        }
+      ]
+    },
+    {
+      "name": "Saskatchewan",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 54532,
+          "rate_bps": 1050
+        },
+        {
+          "up_to": 155805,
+          "rate_bps": 1250
+        },
+        {
+          "up_to": null,
+          "rate_bps": 1450
+        }
+      ]
+    },
+    {
+      "name": "Yukon",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+      "brackets": [
+        {
+          "up_to": 58523,
+          "rate_bps": 640
+        },
+        {
+          "up_to": 117045,
+          "rate_bps": 900
+        },
+        {
+          "up_to": 181440,
+          "rate_bps": 1090
+        },
+        {
+          "up_to": 500000,
+          "rate_bps": 1280
+        },
+        {
+          "up_to": null,
+          "rate_bps": 1500
+        }
+      ]
+    }
+  ]
+}
