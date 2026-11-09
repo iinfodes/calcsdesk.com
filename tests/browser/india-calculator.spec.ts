@@ -73,7 +73,7 @@ test('India input edits send no requests and do not write financial inputs to st
 
 test('India beta has readable current-year sources, keyboard inputs and no page overflow', async ({ page }) => {
   await open(page);
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /^index, follow,/);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://calcsdesk.com${calculator}`);
   const sources = page.locator('#india-sources');
   await expect(sources.getByRole('heading', { level: 2 })).toHaveText('Tax Year 2026-27 rates and sources.');

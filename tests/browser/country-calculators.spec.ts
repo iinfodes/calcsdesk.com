@@ -108,7 +108,7 @@ for (const country of ['UAE', 'UK'] as const) {
   test(`${country} retains readable source caveats, beta indexing and a usable narrow layout`, async ({ page }) => {
     const path = country === 'UAE' ? uae : uk;
     await open(page, path);
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /^index, follow,/);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://calcsdesk.com${path}`);
     const source = page.locator(country === 'UAE' ? '#uae-sources' : '#uk-sources');
     await expect(source.getByRole('heading', { level: 2 })).toBeVisible();
