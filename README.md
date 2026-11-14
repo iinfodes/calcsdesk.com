@@ -2,7 +2,7 @@
 
 Astro, TypeScript and Preact calculators hosted on Cloudflare Pages at [calcsdesk.com](https://calcsdesk.com/). HTTPS and www requests redirect to the HTTPS apex, preserving the path and query. Ads are off.
 
-The homepage and methodology are eligible for indexing. Calculator betas, country collections and other trust pages remain `noindex`; `/sitemap.xml` lists both pages. Search-engine inclusion is not guaranteed by that policy.
+The 95 explicitly approved content routes are eligible for indexing and listed in `/sitemap.xml`. The release allowlist is maintained in `src/lib/page-policy.mjs`; unknown routes remain `noindex`. Eligibility does not guarantee Google inclusion or establish calculator review. Production and GSC checks on 14 November 2026 confirmed a successful 95-URL sitemap; the older indexing report showed one indexed URL.
 
 ## Available limited betas
 

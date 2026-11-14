@@ -4,9 +4,9 @@ import FederalWithholdingPreview from '../../../../components/FederalWithholding
 import data from '../../../../data/us/2026/withholding.json';
 import { paycheckRegions } from '../../../../data/us/2026/paycheck-regions';
 ---
-<Base title="2026 US paycheck federal withholding preview | CalcsDesk"
-  description="Estimate 2026 federal income tax withholding on a regular paycheck using your W-4 and pay frequency."
-  breadcrumb="Federal paycheck withholding preview">
+<Base title="Paycheck Tax Calculator 2026: Federal W-4 | CalcsDesk"
+  description="Estimate federal paycheck tax withholding for 2026 using W-4 settings and pay frequency. See what is excluded and compare annual tax with withholding."
+  breadcrumb="Federal paycheck withholding preview" ancestors={[{ label: 'United States', href: '/us/' }, { label: 'Pay calculators', href: '/us/pay/' }]} application={{ name: '2026 Federal Paycheck Withholding Calculator', description: 'Estimates regular federal income tax withholding using a 2020 or later Form W-4. Excludes FICA, state and local taxes.' }}>
   <article class="reading-page">
     <p class="eyebrow">United States · 2026 preview</p>
     <h1>Federal income tax withholding per paycheck</h1>
@@ -18,6 +18,15 @@ import { paycheckRegions } from '../../../../data/us/2026/paycheck-regions';
     <p>Rates and worksheet checked <time datetime={data.verified_on}>6 November 2026</time>. Official worked-example checks and qualified review are pending.</p>
     <p><a href={data.source_url}>IRS Publication 15-T, Worksheet 1A and annual percentage method tables</a></p>
     <p><a href="/us/">US calculator collection</a> · <a href="/us/tax/income-tax-calculator/">Annual federal income tax beta</a></p>
+    <h2>Which taxes come out of a paycheck?</h2>
+    <p>This tool models only regular federal income tax withholding. A paycheck can also include Social Security, Medicare, state and local taxes, and deductions such as insurance or retirement contributions. Do not treat the federal withholding result as your total paycheck tax or take-home pay.</p>
+    <h2>Withholding versus annual income tax</h2>
+    <p>Withholding is the amount set aside from each payment using your W-4 instructions. Annual tax depends on the year's income, deductions and credits. The two figures serve different tasks: use this tool for regular federal withholding, or the <a href="/us/tax/income-tax-calculator/">annual federal income tax calculator</a> for its supported wage-only estimate before credits.</p>
+    <h2>How to use this paycheck tax calculator</h2>
+    <ol><li>Choose the number of pay periods that matches your payroll.</li><li>Enter federal taxable wages for one regular paycheck, rather than assuming gross salary always equals taxable wages.</li><li>Match the supported filing status and adjustments to your 2020 or later W-4.</li><li>Read the federal withholding result separately from FICA, state tax and other deductions.</li></ol>
+    <h2>What do the state previews calculate?</h2>
+    <p>Coverage varies by state. Some previews require you to enter state withholding separately; they do not calculate a state's full tax rules. Read the selected page's inputs and exclusions before comparing it with a payslip.</p>
+    <p><a href="/sources/us/">US calculator source records</a> · <a href="/methodology/">How to reproduce and check an estimate</a></p>
     <h2>State paycheck previews</h2>
     <ul>{paycheckRegions.map(region => <li><a href={`/us/pay/paycheck-calculator/${region.slug}/`}>{region.name} withholding preview</a></li>)}</ul>
   </article>
